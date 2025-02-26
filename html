@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teachable Machine + p5.js</title>
-
-    <!-- Load Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <title>YMCA Dance Recognition</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,17 +17,24 @@
             align-items: center;
             margin-top: 20px;
         }
+        #label-container {
+            margin-top: 20px;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>Teachable Machine + p5.js</h1>
-    <p>Move your body to change colors!</p>
-    <button onclick="initModel()">Start Model</button>
+    <h1>YMCA Dance Recognition</h1>
+    <p>Make the Y, M, C, or A pose to see the corresponding letter appear!</p>
+    <button type="button" onclick="init()">Start</button>
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div id="label-container"></div>
 
-    <!-- Canvas Container -->
-    <div id="canvas-container"></div>
+    <!-- Audio element for the YMCA chorus -->
+    <audio id="ymca-audio" src="sounds/ymca-chorus.mp3" loop></audio>
 
-    <!-- Load sketch.js AFTER everything else -->
     <script src="sketch.js"></script>
 </body>
 </html>
